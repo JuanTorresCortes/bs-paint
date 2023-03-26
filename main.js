@@ -15,12 +15,14 @@
  * To make the second one happen, the number to change
  * is the first argument to `repeat`, currently set at 10.
  */
+
+
 const gridWidth = 10;
 let count = 0;
 while (count <= gridWidth * gridWidth) {
-  const canvas = document.querySelector('.canvas');
+  const canvas = document.querySelector('#canvas');
   const div = document.createElement('div');
-  div.className = 'square color-5';
+  div.className = 'square ';//color-5
   canvas.appendChild(div);
   count++;
 }
@@ -48,13 +50,48 @@ while (count <= gridWidth * gridWidth) {
 
 // Add queries for all your squares, palette colors, and brush here.
 // (Note the singular or plural used in that sentence!)
+let colorBoxes = document.querySelectorAll(".palette div")
+let brushColor = document.querySelector("#brush")
+let allCanvas = document.querySelectorAll("#canvas div")
 
-
+for(const color of colorBoxes){
+  color.addEventListener("click", function(){
+    let currentColor = color.classList[1];
+    brushColor.className = `${currentColor}`;
+  })
+}
 
 /****************************
  * EVENT LISTENER FUNCTIONS *
 ****************************/
+let isMouseDown = false;
 
+  // for(const square of allCanvas){
+  //   square.addEventListener("click", function(){
+  //     square.classList.add(brush.classList[0])
+  //   })
+  // }
+  
+  for(const square of allCanvas){
+    square.addEventListener("mouseenter", function(){
+      if(isMouseDown === true ){
+        square.classList.add(brush.classList[0])
+      }
+    })
+  }
+
+  for(const square of allCanvas){
+    square.addEventListener("mouseup", function(){
+      isMouseDown = false
+    })
+  }
+
+  for(const square of allCanvas){
+    square.addEventListener("mousedown", function(){
+      isMouseDown = true
+    })
+  }
+  //square.classList.add(brush.classList[0])
 // Now add some functions to handle clicking one particular square
 // and clicking one particular palette color. You can leave them
 // empty at first, though a console.log just to know they're being
@@ -71,3 +108,4 @@ while (count <= gridWidth * gridWidth) {
 // You'll need to add the appropriate event listener for each
 // square and for each palette color from the functions you
 // wrote above.
+

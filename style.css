@@ -1,3 +1,4 @@
+
 .app {
   display: flex;
   height: 500px;
@@ -35,6 +36,7 @@
 .brush {
   display: flex;
   flex-direction: column;
+  margin: 4px;
 }
 
 .icon {
@@ -45,38 +47,41 @@
 .current-brush, .palette-color {
   width: 30px;
   height: 30px;
-  border: 1px solid black;
+  border: 1px solid rgb(243, 243, 243);
+  
 }
 
-.canvas {
+.canvass {
   display: grid;
   grid-template-rows: repeat(10, 1fr);
   grid-template-columns: repeat(10, 1fr);
   height: 300px;
   width: 300px;
-  border: 1px solid black;
+  border: 5px solid black;
 }
 
 .square {
   transition: 0.5s;
+  background-color: yellow ;
 }
 
 .color-1 {
-
-}
+  background-color: red;
+  }
 
 .color-2 {
-
+background-color: blue;
 }
 
 .color-3 {
-
+background-color: rgb(0, 87, 0);
 }
 
 .color-4 {
-
+background-color: rgb(76, 0, 148);
 }
 
 .color-5 {
-
+background-color: rgb(135, 0, 110);
 }
+
